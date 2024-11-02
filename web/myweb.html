@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>網頁範例</title>
+    <title>詳細網頁範例</title>
     <style>
         /* 基本樣式 */
         body {
@@ -45,11 +45,58 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .form-container {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+            overflow: hidden;
             border-radius: 8px;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        .active-slide {
+            display: block;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .dots {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            border-radius: 0 0 8px 8px;
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active-dot {
+            background-color: #717171;
         }
         footer {
             margin-top: 20px;
@@ -58,18 +105,12 @@
             background-color: #333;
             color: white;
         }
-        /* 圖片樣式 */
-        .image-section img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>我的網頁範例</h1>
+        <h1>我的詳細網頁範例</h1>
     </header>
 
     <nav>
@@ -83,6 +124,27 @@
         <section id="home" class="content">
             <h2>歡迎來到我們的網站</h2>
             <p>這是我們的網站首頁，您可以在這裡找到各種服務和信息。無論您需要什麼，我們都致力於提供最佳的體驗。</p>
+        </section>
+
+        <section class="content">
+            <h2>圖片展示</h2>
+            <div class="slideshow-container">
+                <!-- Slides -->
+                <img src="https://via.placeholder.com/800x400?text=圖片1" class="slide active-slide" alt="圖片1">
+                <img src="https://via.placeholder.com/800x400?text=圖片2" class="slide" alt="圖片2">
+                <img src="https://via.placeholder.com/800x400?text=圖片3" class="slide" alt="圖片3">
+
+                <!-- 下一張/上一張按鈕 -->
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+
+            <!-- 點點 -->
+            <div class="dots">
+                <span class="dot active-dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
         </section>
 
         <section id="about" class="content">
@@ -100,13 +162,7 @@
             </ul>
         </section>
 
-        <section class="content image-section">
-            <h2>圖片展示</h2>
-            <img src="https://via.placeholder.com/800x400" alt="展示圖片">
-            <p>這是一張展示圖片，用於展示網頁圖片區域效果。</p>
-        </section>
-
-        <section id="contact" class="form-container">
+        <section id="contact" class="form-container content">
             <h2>聯絡我們</h2>
             <form action="#" method="post">
                 <label for="name">姓名：</label><br>
@@ -137,6 +193,41 @@
     <footer>
         <p>© 2024 詳細網頁範例 | 隱私權政策</p>
     </footer>
+
+    <script>
+        let currentIndex = 0;
+        let slides = document.querySelectorAll(".slide");
+        let dots = document.querySelectorAll(".dot");
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove("active-slide");
+                dots[i].classList.remove("active-dot");
+                if (i === index) {
+                    slide.classList.add("active-slide");
+                    dots[i].classList.add("active-dot");
+                }
+            });
+        }
+
+        function changeSlide(n) {
+            currentIndex = (currentIndex + n + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function currentSlide(n) {
+            currentIndex = n - 1;
+            showSlide(currentIndex);
+        }
+
+        function autoSlide() {
+            changeSlide(1);
+            setTimeout(autoSlide, 5000); // 設定自動播放間隔為5秒
+        }
+
+        // 初始化自動播放
+        autoSlide();
+    </script>
 
 </body>
 </html>
