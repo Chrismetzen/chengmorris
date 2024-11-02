@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡易網頁範例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        main {
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>歡迎來到我的簡易網頁</h1>
+    </header>
+
+    <main>
+        <p>這是一個基本的 HTML 頁面，展示了如何建立標題、段落和表單。</p>
+
+        <div class="form-container">
+            <h2>聯絡我們</h2>
+            <form action="#" method="post">
+                <label for="name">姓名：</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">電子郵件：</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="message">訊息：</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                <button type="submit">提交</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 簡易網頁範例</p>
+    </footer>
+
+</body>
+</html>
