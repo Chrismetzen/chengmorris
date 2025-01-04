@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>餐廳菜單</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #d2691e;
+            margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+        h1 {
+            font-size: 3em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        h2 {
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .menu-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .menu-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: calc(50% - 40px); /* 兩列排版 */
+            overflow: hidden;
+        }
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .menu-item .menu-text {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .menu-item .menu-image {
+            max-width: 180px;
+            max-height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .menu-item h3 {
+            margin: 0;
+            color: #d2691e;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        .menu-item p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+        .menu-item .price {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.3em;
+            margin-top: 10px;
+        }
+        .options-overview, .additional-info {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        .options-overview {
+            background-color: #fff5cc;
+            font-size: 1.1em;
+        }
+        .additional-info {
+            background-color: #e7f8e4;
+            font-size: 1.1em;
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        ul li {
+            margin: 8px 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1em;
+            color: #666;
+            font-family: 'Arial', sans-serif;
+        }
+        footer a {
+            color: #d2691e;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .booking-btn {
+            background-color: #d2691e;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .booking-btn:hover {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>餐廳菜單</h1>
+    <div class="additional-info">
+        <h2>套餐均附贈</h2>
+        <ul>
+            <li>雞湯暢飲/冰淇淋自助吧/蜂蜜檸檬 *1 杯/現烤黃金麵包/招牌脆薯</li>
+        </ul>
+    </div>
+    <div class="options-overview">
+        <h2>可選項目</h2>
+        <span><strong>醬料選擇：</strong>麻奶醬 / 橘醬 / 白醬 / 清炒</span><br>
+        <span><strong>額外選擇：</strong>水波蛋 <span class="highlight">+30</span> / 想吃蛤蠣 <span class="highlight">+69</span></span><br>
+        <span><strong>主食選擇：</strong>燉飯 / Q麵 / 義大利麵</span>
+    </div>
+    <div class="menu-container">
+        <div class="menu-item">
+            <div class="menu-text">
+                <h3>鮮蝦太太</h3>
+                <p>手撥白蝦 / 水波蛋 / 雞肉 / 季節鮮蔬</p>
+                <p class="price">價格：$350</p>
+            </div>
+            <img src="images/鮮蝦太太.png" alt="鮮蝦太太" class="menu-image">
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <h3>干貝先生</h3>
+                <p>嫩煎生食級干貝 / 明太子 / 季節鮮蔬</p>
+                <p class="price">價格：$370</p>
+            </div>
+            <img src="images/干貝先生.png" alt="干貝先生" class="menu-image">
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <h3>涮嘴辣雞</h3>
+                <p>特製香菜辣雞 / 嫩煎去骨雞腿 / 季節鮮蔬</p>
+                <p class="price">價格：$360</p>
+            </div>
+            <img src="images/涮嘴辣雞.png" alt="涮嘴辣雞" class="menu-image">
+        </div>
+        <div class="menu-item">
+            <div class="menu-text">
+                <h3>嫩煎舒肥鴨胸</h3>
+                <p>舒肥鴨胸 / 季節鮮蔬</p>
+                <p class="price">價格：$370</p>
+            </div>
+            <img src="images/嫩煎舒肥鴨胸.png" alt="嫩煎舒肥鴨胸" class="menu-image">
+        </div>
+    </div>
+    <footer>
+        <p>感謝您的光臨！若有任何需求，請聯繫 <a href="mailto:service@restaurant.com">service@restaurant.com</a></p>
+        <a href="https://inline.app/booking/-Mebsh0cw0cdASVEl_l7:inline-live-2/-MebshB-2JRF0mEqVQYr" class="booking-btn">立即預約</a>
+    </footer>
+</body>
+</html>
